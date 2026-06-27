@@ -24,6 +24,9 @@ body::before{
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
+    filter:blur(6px);
+    transform:scale(1.05);
+    opacity:0.45;
     z-index:-2;
 }
 
