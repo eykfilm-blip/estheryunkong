@@ -9,12 +9,16 @@ body{
 
 .ticket{
     position:relative;
-    width:100%;
-    max-width:1366px;
+    width:min(100vw, 1366px);
+    aspect-ratio:1366 / 768;
 }
 
 .background{
+    position:absolute;
+    inset:0;
     width:100%;
+    height:100%;
+    object-fit:contain;
     display:block;
 }
 
@@ -26,7 +30,7 @@ body{
 /* STAR */
 .about{
     left:26.068%;
-    top:50.750%;
+    top:68.750%;
     width:11.380%;
     height:20.241%;
 }
