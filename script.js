@@ -4,6 +4,8 @@ canvases.forEach(canvas => {
     const ctx = canvas.getContext("2d");
 
     function drawScratchSurface(){
+        canvas.style.background = "transparent";
+
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
 
@@ -47,7 +49,7 @@ canvases.forEach(canvas => {
         ctx.textBaseline = "middle";
         ctx.font = `bold ${fontSize}px Arial`;
 
-        ctx.fillStyle = "rgba(45,45,45,0.8)";
+        ctx.fillStyle = "rgba(45,45,45,0.75)";
         ctx.strokeStyle = "rgba(255,255,255,0.55)";
         ctx.lineWidth = 2;
 
@@ -86,13 +88,20 @@ canvases.forEach(canvas => {
 
     function scratchAt(x, y){
         ctx.globalCompositeOperation = "destination-out";
+
         ctx.beginPath();
-        ctx.arc(x, y, 22, 0, Math.PI * 2);
+        ctx.arc(x, y, 24, 0, Math.PI * 2);
         ctx.fill();
     }
 
-    canvas.addEventListener("mousedown", () => {
+    canvas.addEventListener("mousedown", e => {
         scratching = true;
+
+        const rect = canvas.getBoundingClientRect();
+        scratchAt(
+            e.clientX - rect.left,
+            e.clientY - rect.top
+        );
     });
 
     window.addEventListener("mouseup", () => {
