@@ -50,46 +50,60 @@ canvases.forEach(canvas => {
             ctx.fill();
         }
 
-        // Scratch text
-        ctx.save();
+       // Scratch text
+ctx.save();
 
-        const fontSize = canvas.width * 0.11;
+let lineOne = "SCRATCH";
+let lineTwo = "TO REVEAL";
 
-        ctx.globalCompositeOperation = "source-over";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.font = `bold ${fontSize}px Arial`;
+if(canvas.classList.contains("about")){
+    lineTwo = "TO FILMS";
+}
 
-        ctx.fillStyle = "rgba(45,45,45,0.75)";
-        ctx.strokeStyle = "rgba(255,255,255,0.55)";
-        ctx.lineWidth = 2;
+if(canvas.classList.contains("works")){
+    lineTwo = "TO ABOUT";
+}
 
-        ctx.strokeText(
-            "SCRATCH",
-            canvas.width / 2,
-            canvas.height / 2 - fontSize * 0.45
-        );
+if(canvas.classList.contains("cv")){
+    lineTwo = "TO REEL";
+}
 
-        ctx.fillText(
-            "SCRATCH",
-            canvas.width / 2,
-            canvas.height / 2 - fontSize * 0.45
-        );
+const fontSize = canvas.width * 0.11;
 
-        ctx.strokeText(
-            "TO REVEAL",
-            canvas.width / 2,
-            canvas.height / 2 + fontSize * 0.65
-        );
+ctx.globalCompositeOperation = "source-over";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+ctx.font = `bold ${fontSize}px Arial`;
 
-        ctx.fillText(
-            "TO REVEAL",
-            canvas.width / 2,
-            canvas.height / 2 + fontSize * 0.65
-        );
+ctx.fillStyle = "rgba(45,45,45,0.75)";
+ctx.strokeStyle = "rgba(255,255,255,0.55)";
+ctx.lineWidth = 2;
 
-        ctx.restore();
-    }
+ctx.strokeText(
+    lineOne,
+    canvas.width / 2,
+    canvas.height / 2 - fontSize * 0.45
+);
+
+ctx.fillText(
+    lineOne,
+    canvas.width / 2,
+    canvas.height / 2 - fontSize * 0.45
+);
+
+ctx.strokeText(
+    lineTwo,
+    canvas.width / 2,
+    canvas.height / 2 + fontSize * 0.65
+);
+
+ctx.fillText(
+    lineTwo,
+    canvas.width / 2,
+    canvas.height / 2 + fontSize * 0.65
+);
+
+ctx.restore();
 
     drawScratchSurface();
 
