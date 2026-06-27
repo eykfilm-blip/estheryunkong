@@ -1,3 +1,93 @@
+body{
+    margin:0;
+    background:#111;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    cursor:url("./images/dime-cursor.png") 32 32, auto;
+    overflow:hidden;
+    position:relative;
+}
+
+/* background image behind the ticket */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:url("./images/page-background.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    filter:blur(6px);
+    transform:scale(1.05);
+    opacity:0.55;
+    z-index:0;
+}
+
+/* dark overlay */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.35);
+    z-index:1;
+}
+
+.ticket{
+    position:relative;
+    width:min(100vw, 1366px);
+    aspect-ratio:1366 / 768;
+    z-index:2;
+}
+
+.background{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+    z-index:1;
+    pointer-events:none;
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-user-drag:none;
+}
+
+.scratch{
+    position:absolute;
+    z-index:2;
+    background:transparent;
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-user-drag:none;
+}
+
+/* FILMS */
+.about{
+    left:20.61%;
+    top:59.01%;
+    width:10.97%;
+    height:19.41%;
+}
+
+/* ABOUT */
+.works{
+    left:42.67%;
+    top:59.01%;
+    width:10.97%;
+    height:19.41%;
+}
+
+/* REEL */
+.cv{
+    left:64.90%;
+    top:59.01%;
+    width:10.97%;
+    height:19.41%;
+}
+
 /* FILMS PAGE */
 
 .films-page{
@@ -83,7 +173,6 @@
     opacity:0.8;
 }
 
-/* Mobile */
 @media (max-width:800px){
     .films-panel{
         width:92vw;
