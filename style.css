@@ -27,26 +27,26 @@
 /* STAR */
 .about{
     position:absolute;
-    left:26.6%;
-    top:68.8%;
-    width:12%;
+    left:22.5%;
+    top:60%;
+    width:14%;
     aspect-ratio:1/1;
 }
 
 /* CLAPPER */
 .works{
     position:absolute;
-    left:49.0%;
-    top:68.8%;
-    width:12%;
+    left:44.8%;
+    top:60%;
+    width:14%;
     aspect-ratio:1/1;
 }
 
 /* LIGHT */
 .cv{
     position:absolute;
-    left:71.5%;
-    top:68.8%;
-    width:12%;
+    left:67.2%;
+    top:60%;
+    width:14%;
     aspect-ratio:1/1;
 }
