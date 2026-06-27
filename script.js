@@ -1,3 +1,14 @@
+const ticket = document.querySelector(".ticket");
+
+ticket.addEventListener("contextmenu", e => {
+    e.preventDefault();
+});
+
+ticket.addEventListener("dragstart", e => {
+    e.preventDefault();
+});
+
+
 const canvases = document.querySelectorAll(".scratch");
 
 canvases.forEach(canvas => {
