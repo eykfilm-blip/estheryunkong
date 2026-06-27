@@ -11,9 +11,9 @@ if (ticket) {
 }
 
 const links = {
-    about: "films.html",
-    works: "about.html",
-    cv: "reel.html"
+    about: "films/",
+    works: "about/",
+    cv: "reel/"
 };
 
 const canvases = document.querySelectorAll(".scratch");
