@@ -22,9 +22,9 @@ body{
     display:block;
 }
 
+.ticket,
 .scratch{
-    position:absolute;
-    cursor:pointer;
+    cursor:url("images/dime-cursor.png") 32 32, pointer;
 }
 
 /* STAR */
