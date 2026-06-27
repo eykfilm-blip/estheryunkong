@@ -1,20 +1,21 @@
 const ticket = document.querySelector(".ticket");
 
-ticket.addEventListener("contextmenu", e => {
-    e.preventDefault();
-});
+if (ticket) {
+    ticket.addEventListener("contextmenu", e => {
+        e.preventDefault();
+    });
 
-ticket.addEventListener("dragstart", e => {
-    e.preventDefault();
-});
-
+    ticket.addEventListener("dragstart", e => {
+        e.preventDefault();
+    });
+}
 
 const canvases = document.querySelectorAll(".scratch");
 
 canvases.forEach(canvas => {
     const ctx = canvas.getContext("2d");
 
-    function drawScratchSurface(){
+    function drawScratchSurface() {
         canvas.style.background = "transparent";
 
         canvas.width = canvas.offsetWidth;
@@ -37,7 +38,7 @@ canvases.forEach(canvas => {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // Silver speckles
-        for(let i = 0; i < 300; i++){
+        for (let i = 0; i < 300; i++) {
             ctx.fillStyle = "rgba(255,255,255,0.25)";
             ctx.beginPath();
             ctx.arc(
@@ -50,60 +51,61 @@ canvases.forEach(canvas => {
             ctx.fill();
         }
 
-       // Scratch text
-ctx.save();
+        // Scratch text
+        ctx.save();
 
-let lineOne = "SCRATCH";
-let lineTwo = "TO REVEAL";
+        let lineOne = "SCRATCH";
+        let lineTwo = "TO REVEAL";
 
-if(canvas.classList.contains("about")){
-    lineTwo = "TO FILMS";
-}
+        if (canvas.classList.contains("about")) {
+            lineTwo = "TO FILMS";
+        }
 
-if(canvas.classList.contains("works")){
-    lineTwo = "TO ABOUT";
-}
+        if (canvas.classList.contains("works")) {
+            lineTwo = "TO ABOUT";
+        }
 
-if(canvas.classList.contains("cv")){
-    lineTwo = "TO REEL";
-}
+        if (canvas.classList.contains("cv")) {
+            lineTwo = "TO REEL";
+        }
 
-const fontSize = canvas.width * 0.11;
+        const fontSize = canvas.width * 0.11;
 
-ctx.globalCompositeOperation = "source-over";
-ctx.textAlign = "center";
-ctx.textBaseline = "middle";
-ctx.font = `bold ${fontSize}px Arial`;
+        ctx.globalCompositeOperation = "source-over";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.font = `bold ${fontSize}px Arial`;
 
-ctx.fillStyle = "rgba(45,45,45,0.75)";
-ctx.strokeStyle = "rgba(255,255,255,0.55)";
-ctx.lineWidth = 2;
+        ctx.fillStyle = "rgba(45,45,45,0.75)";
+        ctx.strokeStyle = "rgba(255,255,255,0.55)";
+        ctx.lineWidth = 2;
 
-ctx.strokeText(
-    lineOne,
-    canvas.width / 2,
-    canvas.height / 2 - fontSize * 0.45
-);
+        ctx.strokeText(
+            lineOne,
+            canvas.width / 2,
+            canvas.height / 2 - fontSize * 0.45
+        );
 
-ctx.fillText(
-    lineOne,
-    canvas.width / 2,
-    canvas.height / 2 - fontSize * 0.45
-);
+        ctx.fillText(
+            lineOne,
+            canvas.width / 2,
+            canvas.height / 2 - fontSize * 0.45
+        );
 
-ctx.strokeText(
-    lineTwo,
-    canvas.width / 2,
-    canvas.height / 2 + fontSize * 0.65
-);
+        ctx.strokeText(
+            lineTwo,
+            canvas.width / 2,
+            canvas.height / 2 + fontSize * 0.65
+        );
 
-ctx.fillText(
-    lineTwo,
-    canvas.width / 2,
-    canvas.height / 2 + fontSize * 0.65
-);
+        ctx.fillText(
+            lineTwo,
+            canvas.width / 2,
+            canvas.height / 2 + fontSize * 0.65
+        );
 
-ctx.restore();
+        ctx.restore();
+    }
 
     drawScratchSurface();
 
@@ -111,7 +113,7 @@ ctx.restore();
 
     let scratching = false;
 
-    function scratchAt(x, y){
+    function scratchAt(x, y) {
         ctx.globalCompositeOperation = "destination-out";
 
         ctx.beginPath();
@@ -123,6 +125,7 @@ ctx.restore();
         scratching = true;
 
         const rect = canvas.getBoundingClientRect();
+
         scratchAt(
             e.clientX - rect.left,
             e.clientY - rect.top
@@ -134,7 +137,7 @@ ctx.restore();
     });
 
     canvas.addEventListener("mousemove", e => {
-        if(!scratching) return;
+        if (!scratching) return;
 
         const rect = canvas.getBoundingClientRect();
 
