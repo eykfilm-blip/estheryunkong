@@ -27,7 +27,6 @@ body{
 .scratch{
     position:absolute;
     z-index:2;
-    cursor:url("images/dime-cursor.png") 32 32, pointer;
     background:transparent;
 }
 
