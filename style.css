@@ -23,7 +23,7 @@ body{
     cursor:pointer;
 }
 
-/* LEFT BOX */
+/* STAR */
 
 .about{
     left:26.07%;
@@ -32,7 +32,7 @@ body{
     height:20.24%;
 }
 
-/* MIDDLE BOX */
+/* CLAPPER */
 
 .works{
     left:48.16%;
@@ -41,7 +41,7 @@ body{
     height:20.24%;
 }
 
-/* RIGHT BOX */
+/* LIGHT */
 
 .cv{
     left:70.37%;
