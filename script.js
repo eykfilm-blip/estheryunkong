@@ -10,12 +10,6 @@ if (ticket) {
     });
 }
 
-const links = {
-    about: "./films.html",
-    works: "./about.html",
-    cv: "./reel.html"
-};
-
 const canvases = document.querySelectorAll(".scratch");
 
 canvases.forEach(canvas => {
@@ -114,18 +108,9 @@ canvases.forEach(canvas => {
         ctx.restore();
     }
 
-    function getScratchLink() {
-        if (canvas.classList.contains("about")) {
-            return links.about;
-        }
-
-        if (canvas.classList.contains("works")) {
-            return links.works;
-        }
-
-        if (canvas.classList.contains("cv")) {
-            return links.cv;
-        }
+function getScratchLink() {
+    return canvas.dataset.link;
+}
 
         return "./index.html";
     }
