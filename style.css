@@ -17,24 +17,27 @@
 
 /* STAR */
 .about{
-    left:26.07%;
-    top:68.75%;
-    width:11.38%;
-    height:20.24%;
+    position:absolute;
+    left:26.6%;
+    top:68.8%;
+    width:12%;
+    aspect-ratio:1/1;
 }
 
 /* CLAPPER */
 .works{
-    left:48.16%;
-    top:68.75%;
-    width:11.38%;
-    height:20.24%;
+    position:absolute;
+    left:49.0%;
+    top:68.8%;
+    width:12%;
+    aspect-ratio:1/1;
 }
 
 /* LIGHT */
 .cv{
-    left:70.37%;
-    top:68.75%;
-    width:11.38%;
-    height:20.24%;
+    position:absolute;
+    left:71.5%;
+    top:68.8%;
+    width:12%;
+    aspect-ratio:1/1;
 }
