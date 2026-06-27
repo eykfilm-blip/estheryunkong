@@ -6,12 +6,39 @@ body{
     align-items:center;
     min-height:100vh;
     cursor:url("./images/dime-cursor.png") 32 32, auto;
+    overflow:hidden;
+    position:relative;
+}
+
+/* background image behind the ticket */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:url("./images/page-background.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    filter:blur(6px);
+    transform:scale(1.05);
+    opacity:0.55;
+    z-index:0;
+}
+
+/* dark overlay */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.35);
+    z-index:1;
 }
 
 .ticket{
     position:relative;
     width:min(100vw, 1366px);
     aspect-ratio:1366 / 768;
+    z-index:2;
 }
 
 .background{
