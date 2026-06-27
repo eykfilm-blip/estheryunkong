@@ -53,3 +53,15 @@ body{
     width:10.97%;
     height:19.41%;
 }
+
+.ticket,
+.background,
+.scratch{
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-user-drag:none;
+}
+
+.background{
+    pointer-events:none;
+}
