@@ -26,10 +26,8 @@ body{
 .scratch{
     position:absolute;
     z-index:2;
-    cursor:pointer;
-
-    /* fallback silver surface in case JavaScript fails */
-    background:linear-gradient(135deg, #f2f2f2, #bdbdbd, #8b8b8b);
+    cursor:url("images/dime-cursor.png") 32 32, pointer;
+    background:transparent;
 }
 
 /* STAR */
