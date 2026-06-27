@@ -10,10 +10,18 @@ if (ticket) {
     });
 }
 
+const links = {
+    about: "films.html",
+    works: "about.html",
+    cv: "reel.html"
+};
+
 const canvases = document.querySelectorAll(".scratch");
 
 canvases.forEach(canvas => {
     const ctx = canvas.getContext("2d");
+    let scratching = false;
+    let hasNavigated = false;
 
     function drawScratchSurface() {
         canvas.style.background = "transparent";
@@ -107,19 +115,73 @@ canvases.forEach(canvas => {
         ctx.restore();
     }
 
-    drawScratchSurface();
-
-    window.addEventListener("resize", drawScratchSurface);
-
-    let scratching = false;
-
     function scratchAt(x, y) {
         ctx.globalCompositeOperation = "destination-out";
 
         ctx.beginPath();
         ctx.arc(x, y, 24, 0, Math.PI * 2);
         ctx.fill();
+
+        checkRevealAmount();
     }
+
+    function getScratchLink() {
+        if (canvas.classList.contains("about")) {
+            return links.about;
+        }
+
+        if (canvas.classList.contains("works")) {
+            return links.works;
+        }
+
+        if (canvas.classList.contains("cv")) {
+            return links.cv;
+        }
+
+        return null;
+    }
+
+    function checkRevealAmount() {
+        if (hasNavigated) return;
+
+        const imageData = ctx.getImageData(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+        const pixels = imageData.data;
+        let clearPixels = 0;
+
+        for (let i = 3; i < pixels.length; i += 4) {
+            if (pixels[i] === 0) {
+                clearPixels++;
+            }
+        }
+
+        const totalPixels = canvas.width * canvas.height;
+        const revealedAmount = clearPixels / totalPixels;
+
+        if (revealedAmount > 0.45) {
+            hasNavigated = true;
+
+            canvas.style.transition = "opacity 0.3s ease";
+            canvas.style.opacity = "0";
+
+            const link = getScratchLink();
+
+            setTimeout(() => {
+                if (link) {
+                    window.location.href = link;
+                }
+            }, 350);
+        }
+    }
+
+    drawScratchSurface();
+
+    window.addEventListener("resize", drawScratchSurface);
 
     canvas.addEventListener("mousedown", e => {
         scratching = true;
