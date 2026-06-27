@@ -11,9 +11,9 @@ if (ticket) {
 }
 
 const links = {
-    about: "films.html",
-    works: "about.html",
-    cv: "reel.html"
+    about: "./films.html",
+    works: "./about.html",
+    cv: "./reel.html"
 };
 
 const canvases = document.querySelectorAll(".scratch");
@@ -21,6 +21,7 @@ const canvases = document.querySelectorAll(".scratch");
 canvases.forEach(canvas => {
     const ctx = canvas.getContext("2d");
     let scratching = false;
+    let scratchCount = 0;
     let hasNavigated = false;
 
     function drawScratchSurface() {
@@ -45,7 +46,6 @@ canvases.forEach(canvas => {
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Silver speckles
         for (let i = 0; i < 300; i++) {
             ctx.fillStyle = "rgba(255,255,255,0.25)";
             ctx.beginPath();
@@ -59,7 +59,6 @@ canvases.forEach(canvas => {
             ctx.fill();
         }
 
-        // Scratch text
         ctx.save();
 
         let lineOne = "SCRATCH";
@@ -115,16 +114,6 @@ canvases.forEach(canvas => {
         ctx.restore();
     }
 
-    function scratchAt(x, y) {
-        ctx.globalCompositeOperation = "destination-out";
-
-        ctx.beginPath();
-        ctx.arc(x, y, 24, 0, Math.PI * 2);
-        ctx.fill();
-
-        checkRevealAmount();
-    }
-
     function getScratchLink() {
         if (canvas.classList.contains("about")) {
             return links.about;
@@ -138,44 +127,35 @@ canvases.forEach(canvas => {
             return links.cv;
         }
 
-        return null;
+        return "./index.html";
     }
 
-    function checkRevealAmount() {
+    function goToPage() {
         if (hasNavigated) return;
 
-        const imageData = ctx.getImageData(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
+        hasNavigated = true;
 
-        const pixels = imageData.data;
-        let clearPixels = 0;
+        const link = getScratchLink();
 
-        for (let i = 3; i < pixels.length; i += 4) {
-            if (pixels[i] === 0) {
-                clearPixels++;
-            }
-        }
+        canvas.style.transition = "opacity 0.25s ease";
+        canvas.style.opacity = "0";
 
-        const totalPixels = canvas.width * canvas.height;
-        const revealedAmount = clearPixels / totalPixels;
+        setTimeout(() => {
+            window.location.href = link;
+        }, 350);
+    }
 
-        if (revealedAmount > 0.45) {
-            hasNavigated = true;
+    function scratchAt(x, y) {
+        ctx.globalCompositeOperation = "destination-out";
 
-            canvas.style.transition = "opacity 0.3s ease";
-            canvas.style.opacity = "0";
+        ctx.beginPath();
+        ctx.arc(x, y, 28, 0, Math.PI * 2);
+        ctx.fill();
 
-            const link = getScratchLink();
+        scratchCount++;
 
-            setTimeout(() => {
-                if (link) {
-                    window.location.href = link;
-                }
-            }, 350);
+        if (scratchCount >= 8) {
+            goToPage();
         }
     }
 
