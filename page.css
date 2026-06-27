@@ -20,12 +20,10 @@ body::before{
     content:"";
     position:fixed;
     inset:0;
-    background-image:url("images/Website Background.png");
+    background-image:url("images/page-background.png");
     background-size:cover;
     background-position:center;
-    filter:blur(6px);
-    transform:scale(1.05);
-    opacity:0.45;
+    background-repeat:no-repeat;
     z-index:-2;
 }
 
