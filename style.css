@@ -5,6 +5,7 @@ body{
     justify-content:center;
     align-items:center;
     min-height:100vh;
+    cursor:url("images/dime-cursor.png") 32 32, auto;
 }
 
 .ticket{
