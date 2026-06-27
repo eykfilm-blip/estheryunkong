@@ -4,24 +4,29 @@ canvases.forEach(canvas => {
 
     const ctx = canvas.getContext("2d");
 
-    function resizeCanvas(){
+    function drawScratchSurface(){
 
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
 
-        // Silver coating
-        const gradient = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
-        gradient.addColorStop(0,"#efefef");
-        gradient.addColorStop(.5,"#bdbdbd");
+        const gradient = ctx.createLinearGradient(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+        gradient.addColorStop(0,"#f2f2f2");
+        gradient.addColorStop(.45,"#bdbdbd");
         gradient.addColorStop(1,"#8b8b8b");
 
-        ctx.fillStyle = gradient;
+        ctx.globalCompositeOperation="source-over";
+        ctx.fillStyle=gradient;
         ctx.fillRect(0,0,canvas.width,canvas.height);
 
-        // Speckles
-        for(let i=0;i<250;i++){
+        for(let i=0;i<300;i++){
 
-            ctx.fillStyle="rgba(255,255,255,.15)";
+            ctx.fillStyle="rgba(255,255,255,.18)";
 
             ctx.beginPath();
 
@@ -34,17 +39,24 @@ canvases.forEach(canvas => {
             );
 
             ctx.fill();
+
         }
+
     }
 
-    resizeCanvas();
+    drawScratchSurface();
 
-    window.addEventListener("resize",resizeCanvas);
+    window.addEventListener("resize",drawScratchSurface);
 
     let scratching=false;
 
-    canvas.addEventListener("mousedown",()=> scratching=true);
-    window.addEventListener("mouseup",()=> scratching=false);
+    canvas.addEventListener("mousedown",()=>{
+        scratching=true;
+    });
+
+    window.addEventListener("mouseup",()=>{
+        scratching=false;
+    });
 
     canvas.addEventListener("mousemove",(e)=>{
 
@@ -60,6 +72,7 @@ canvases.forEach(canvas => {
         ctx.beginPath();
         ctx.arc(x,y,22,0,Math.PI*2);
         ctx.fill();
+
     });
 
 });
