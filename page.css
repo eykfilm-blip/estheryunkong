@@ -1,1 +1,68 @@
+html,
+body{
+    margin:0;
+    min-height:100%;
+}
 
+body{
+    font-family: Arial, sans-serif;
+    color:white;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:url("images/dime-cursor.png") 32 32, auto;
+    overflow:hidden;
+    background:#111;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:url("images/Website Background.png");
+    background-size:cover;
+    background-position:center;
+    filter:blur(6px);
+    transform:scale(1.05);
+    opacity:0.45;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+    z-index:-1;
+}
+
+.page-card{
+    text-align:center;
+    padding:40px 60px;
+    border:2px solid rgba(255,255,255,0.35);
+    border-radius:18px;
+    background:rgba(0,0,0,0.45);
+    backdrop-filter:blur(8px);
+}
+
+h1{
+    margin:0 0 24px;
+    font-size:48px;
+    letter-spacing:2px;
+}
+
+.back-button{
+    display:inline-block;
+    color:white;
+    text-decoration:none;
+    border:1px solid white;
+    padding:12px 20px;
+    border-radius:999px;
+    font-size:16px;
+}
+
+.back-button:hover{
+    background:white;
+    color:black;
+}
