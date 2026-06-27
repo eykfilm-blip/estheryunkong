@@ -14,6 +14,7 @@ const canvases = document.querySelectorAll(".scratch");
 
 canvases.forEach(canvas => {
     const ctx = canvas.getContext("2d");
+
     let scratching = false;
     let scratchCount = 0;
     let hasNavigated = false;
@@ -40,6 +41,7 @@ canvases.forEach(canvas => {
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+        // Silver speckles
         for (let i = 0; i < 300; i++) {
             ctx.fillStyle = "rgba(255,255,255,0.25)";
             ctx.beginPath();
@@ -53,10 +55,11 @@ canvases.forEach(canvas => {
             ctx.fill();
         }
 
+        // Scratch text
         ctx.save();
 
-        let lineOne = "SCRATCH";
-let lineTwo = canvas.dataset.label || "TO REVEAL";
+        const lineOne = "SCRATCH";
+        const lineTwo = canvas.dataset.label || "TO REVEAL";
 
         const fontSize = canvas.width * 0.11;
 
@@ -96,25 +99,20 @@ let lineTwo = canvas.dataset.label || "TO REVEAL";
         ctx.restore();
     }
 
-function getScratchLink() {
-    return canvas.dataset.link;
-}
-
-        return "./index.html";
-    }
-
     function goToPage() {
         if (hasNavigated) return;
 
         hasNavigated = true;
 
-        const link = getScratchLink();
+        const link = canvas.dataset.link;
 
         canvas.style.transition = "opacity 0.25s ease";
         canvas.style.opacity = "0";
 
         setTimeout(() => {
-            window.location.href = link;
+            if (link) {
+                window.location.href = link;
+            }
         }, 350);
     }
 
@@ -160,5 +158,35 @@ function getScratchLink() {
             e.clientX - rect.left,
             e.clientY - rect.top
         );
+    });
+
+    canvas.addEventListener("touchstart", e => {
+        scratching = true;
+
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches[0];
+
+        scratchAt(
+            touch.clientX - rect.left,
+            touch.clientY - rect.top
+        );
+    });
+
+    canvas.addEventListener("touchmove", e => {
+        if (!scratching) return;
+
+        e.preventDefault();
+
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches[0];
+
+        scratchAt(
+            touch.clientX - rect.left,
+            touch.clientY - rect.top
+        );
+    }, { passive: false });
+
+    canvas.addEventListener("touchend", () => {
+        scratching = false;
     });
 });
