@@ -33,24 +33,24 @@ body{
 
 /* Left */
 .about{
-    left:21%;
-    top:60%;
-    width:12.3%;
-    height:15.8%;
+    left:26.1%;
+    top:68.8%;
+    width:11.4%;
+    height:20.2%;
 }
 
 /* Middle */
 .works{
-    left:44.4%;
-    top:60%;
-    width:12.3%;
-    height:15.8%;
+    left:48.2%;
+    top:68.8%;
+    width:11.4%;
+    height:20.2%;
 }
 
 /* Right */
 .cv{
-    left:67.8%;
-    top:60%;
-    width:12.3%;
-    height:15.8%;
+    left:70.4%;
+    top:68.8%;
+    width:11.4%;
+    height:20.2%;
 }
