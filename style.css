@@ -1,89 +1,100 @@
-body{
-    margin:0;
-    background:#111;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    cursor:url("./images/dime-cursor.png") 32 32, auto;
-    overflow:hidden;
-    position:relative;
+/* FILMS PAGE */
+
+.films-page{
+    align-items:flex-start;
+    overflow:auto;
+    padding:40px 0;
 }
 
-/* background image behind the ticket */
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background-image:url("./images/page-background.png");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    filter:blur(6px);
-    transform:scale(1.05);
-    opacity:0.55;
-    z-index:0;
+.films-panel{
+    width:88vw;
+    min-height:82vh;
+    padding:48px;
+    box-sizing:border-box;
+
+    border:2px solid rgba(255,255,255,0.35);
+    border-radius:22px;
+
+    background:rgba(0,0,0,0.48);
+    backdrop-filter:blur(8px);
+
+    color:white;
 }
 
-/* dark overlay */
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.35);
-    z-index:1;
+.films-header{
+    text-align:center;
+    margin-bottom:48px;
 }
 
-.ticket{
-    position:relative;
-    width:min(100vw, 1366px);
-    aspect-ratio:1366 / 768;
-    z-index:2;
+.films-header h1{
+    margin:0 0 18px;
+    font-size:64px;
+    letter-spacing:4px;
 }
 
-.background{
-    position:absolute;
-    inset:0;
+.back-button{
+    display:inline-block;
+    color:white;
+    text-decoration:none;
+    border:1px solid white;
+    padding:12px 22px;
+    border-radius:999px;
+    font-size:15px;
+}
+
+.back-button:hover{
+    background:white;
+    color:black;
+}
+
+.films-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+}
+
+.film-card{
+    min-height:260px;
+    padding:18px;
+    box-sizing:border-box;
+
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:16px;
+
+    background:rgba(255,255,255,0.08);
+}
+
+.film-thumb{
     width:100%;
-    height:100%;
-    object-fit:contain;
-    display:block;
-    z-index:1;
-    pointer-events:none;
-    user-select:none;
-    -webkit-user-select:none;
-    -webkit-user-drag:none;
+    aspect-ratio:16 / 9;
+    border-radius:12px;
+    background:rgba(255,255,255,0.18);
+    margin-bottom:16px;
 }
 
-.scratch{
-    position:absolute;
-    z-index:2;
-    background:transparent;
-    user-select:none;
-    -webkit-user-select:none;
-    -webkit-user-drag:none;
+.film-card h2{
+    margin:0 0 8px;
+    font-size:24px;
 }
 
-/* FILMS */
-.about{
-    left:20.61%;
-    top:59.01%;
-    width:10.97%;
-    height:19.41%;
+.film-card p{
+    margin:0;
+    font-size:14px;
+    opacity:0.8;
 }
 
-/* ABOUT */
-.works{
-    left:42.67%;
-    top:59.01%;
-    width:10.97%;
-    height:19.41%;
-}
+/* Mobile */
+@media (max-width:800px){
+    .films-panel{
+        width:92vw;
+        padding:28px;
+    }
 
-/* REEL */
-.cv{
-    left:64.90%;
-    top:59.01%;
-    width:10.97%;
-    height:19.41%;
+    .films-header h1{
+        font-size:44px;
+    }
+
+    .films-grid{
+        grid-template-columns:1fr;
+    }
 }
