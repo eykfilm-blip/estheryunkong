@@ -20,11 +20,16 @@ body{
     height:100%;
     object-fit:contain;
     display:block;
+    z-index:1;
 }
 
-.ticket,
 .scratch{
-    cursor:url("images/dime-cursor.png") 32 32, pointer;
+    position:absolute;
+    z-index:2;
+    cursor:pointer;
+
+    /* fallback silver surface in case JavaScript fails */
+    background:linear-gradient(135deg, #f2f2f2, #bdbdbd, #8b8b8b);
 }
 
 /* STAR */
@@ -48,5 +53,5 @@ body{
     left:64.90%;
     top:59.01%;
     width:10.97%;
-    height:19.50%;
+    height:19.41%;
 }
