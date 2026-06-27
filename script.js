@@ -56,19 +56,7 @@ canvases.forEach(canvas => {
         ctx.save();
 
         let lineOne = "SCRATCH";
-        let lineTwo = "TO REVEAL";
-
-        if (canvas.classList.contains("about")) {
-            lineTwo = "TO FILMS";
-        }
-
-        if (canvas.classList.contains("works")) {
-            lineTwo = "TO ABOUT";
-        }
-
-        if (canvas.classList.contains("cv")) {
-            lineTwo = "TO REEL";
-        }
+let lineTwo = canvas.dataset.label || "TO REVEAL";
 
         const fontSize = canvas.width * 0.11;
 
