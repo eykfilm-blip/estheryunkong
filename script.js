@@ -37,18 +37,18 @@ canvases.forEach(canvas => {
             ctx.fill();
         }
 
-        // Visible scratch text
+        // Scratch text
         ctx.save();
+
+        const fontSize = canvas.width * 0.11;
 
         ctx.globalCompositeOperation = "source-over";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-
-        const fontSize = canvas.width * 0.12;
         ctx.font = `bold ${fontSize}px Arial`;
 
-        ctx.fillStyle = "rgba(45,45,45,0.75)";
-        ctx.strokeStyle = "rgba(255,255,255,0.45)";
+        ctx.fillStyle = "rgba(45,45,45,0.8)";
+        ctx.strokeStyle = "rgba(255,255,255,0.55)";
         ctx.lineWidth = 2;
 
         ctx.strokeText(
