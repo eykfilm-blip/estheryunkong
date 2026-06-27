@@ -42,7 +42,7 @@ canvases.forEach(canvas => {
         }
 
         // Faint text
-        ctx.globalAlpha = 0.35;
+        ctx.globalAlpha = 0.5;
         ctx.fillStyle = "#555";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
