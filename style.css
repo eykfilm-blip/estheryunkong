@@ -9,13 +9,12 @@ body{
 
 .ticket{
     position:relative;
-    width:1366px;
-    height:768px;
+    width:100%;
+    max-width:1366px;
 }
 
 .background{
-    width:1366px;
-    height:768px;
+    width:100%;
     display:block;
 }
 
@@ -24,23 +23,26 @@ body{
     cursor:pointer;
 }
 
+/* STAR */
 .about{
-    left:356px;
-    top:528px;
-    width:155px;
-    height:155px;
+    left:26.068%;
+    top:68.750%;
+    width:11.380%;
+    height:20.241%;
 }
 
+/* CLAPPER */
 .works{
-    left:658px;
-    top:528px;
-    width:155px;
-    height:155px;
+    left:48.165%;
+    top:68.750%;
+    width:11.380%;
+    height:20.241%;
 }
 
+/* LIGHT */
 .cv{
-    left:961px;
-    top:528px;
-    width:155px;
-    height:155px;
+    left:70.374%;
+    top:68.750%;
+    width:11.380%;
+    height:20.241%;
 }
