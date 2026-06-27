@@ -5,7 +5,7 @@ body{
     justify-content:center;
     align-items:center;
     min-height:100vh;
-    cursor:url("images/dime-cursor.png") 32 32, auto;
+    cursor:url("./images/dime-cursor.png") 32 32, auto;
 }
 
 .ticket{
@@ -22,15 +22,22 @@ body{
     object-fit:contain;
     display:block;
     z-index:1;
+    pointer-events:none;
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-user-drag:none;
 }
 
 .scratch{
     position:absolute;
     z-index:2;
     background:transparent;
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-user-drag:none;
 }
 
-/* STAR */
+/* FILMS */
 .about{
     left:20.61%;
     top:59.01%;
@@ -38,7 +45,7 @@ body{
     height:19.41%;
 }
 
-/* CLAPPER */
+/* ABOUT */
 .works{
     left:42.67%;
     top:59.01%;
@@ -46,22 +53,10 @@ body{
     height:19.41%;
 }
 
-/* LIGHT */
+/* REEL */
 .cv{
     left:64.90%;
     top:59.01%;
     width:10.97%;
     height:19.41%;
-}
-
-.ticket,
-.background,
-.scratch{
-    user-select:none;
-    -webkit-user-select:none;
-    -webkit-user-drag:none;
-}
-
-.background{
-    pointer-events:none;
 }
