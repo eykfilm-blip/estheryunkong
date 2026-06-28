@@ -166,3 +166,23 @@ body::after{
         grid-template-columns:1fr;
     }
 }
+
+.film-card,
+.film-card:visited,
+.film-card:hover,
+.film-card:active{
+    color:white;
+    text-decoration:none;
+}
+
+.film-card h2,
+.film-card p{
+    color:white;
+    text-decoration:none;
+}
+
+.film-card:hover h2,
+.film-card:hover p{
+    color:white;
+    text-decoration:none;
+}
