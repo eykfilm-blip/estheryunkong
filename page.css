@@ -97,21 +97,13 @@ body::after{
 
 .films-grid{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns:repeat(3, minmax(0, 1fr));
     gap:28px;
 }
 
 .film-card{
-    min-height:260px;
-    padding:18px;
-    box-sizing:border-box;
-    border:1px solid rgba(255,255,255,0.25);
-    border-radius:16px;
-    background:rgba(255,255,255,0.08);
-}
-
-.film-card{
     display:block;
+    min-width:0;
     min-height:260px;
     padding:18px;
     box-sizing:border-box;
@@ -125,6 +117,7 @@ body::after{
     text-decoration:none;
 
     transition:transform 0.2s ease, background 0.2s ease, border 0.2s ease;
+    overflow:hidden;
 }
 
 .film-card:hover{
@@ -149,15 +142,10 @@ body::after{
     object-fit:cover;
 }
 
-.film-card h2{
-    margin:0 0 8px;
-    font-size:24px;
-}
-
+.film-card h2,
 .film-card p{
-    margin:0;
-    font-size:14px;
-    opacity:0.8;
+    color:white;
+    text-decoration:none;
 }
 
 @media (max-width:800px){
