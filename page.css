@@ -110,6 +110,29 @@ body::after{
     background:rgba(255,255,255,0.08);
 }
 
+.film-card{
+    display:block;
+    min-height:260px;
+    padding:18px;
+    box-sizing:border-box;
+
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:16px;
+
+    background:rgba(255,255,255,0.08);
+
+    color:white;
+    text-decoration:none;
+
+    transition:transform 0.2s ease, background 0.2s ease, border 0.2s ease;
+}
+
+.film-card:hover{
+    transform:translateY(-6px);
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.5);
+}
+
 .film-thumb{
     width:100%;
     aspect-ratio:16 / 9;
