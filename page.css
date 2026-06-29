@@ -294,3 +294,55 @@ body::after{
         grid-template-columns:1fr;
     }
 }
+
+/* PROJECT STILLS GALLERY */
+
+.project-main-full{
+    display:block;
+}
+
+.project-main-full .project-media{
+    width:100%;
+    max-height:560px;
+}
+
+.project-main-full .project-media img{
+    width:100%;
+    height:100%;
+    max-height:560px;
+    object-fit:cover;
+}
+
+.stills-section{
+    margin-top:28px;
+    padding:26px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.2);
+}
+
+.stills-section h2{
+    margin:0 0 18px;
+    font-size:28px;
+}
+
+.stills-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:18px;
+}
+
+.stills-grid img{
+    width:100%;
+    aspect-ratio:16 / 9;
+    object-fit:cover;
+    display:block;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.25);
+}
+
+@media (max-width:800px){
+    .stills-grid{
+        grid-template-columns:1fr;
+    }
+}
