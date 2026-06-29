@@ -327,3 +327,47 @@ body::after{
         grid-template-columns:1fr;
     }
 }
+
+/* CINEMATOGRAPHY SECTION */
+
+.cinematography-section{
+    margin-top:56px;
+    padding-top:42px;
+    border-top:1px solid rgba(255,255,255,0.25);
+}
+
+.cinematography-section h2{
+    text-align:center;
+    margin:0 0 32px;
+    font-size:44px;
+    letter-spacing:4px;
+}
+
+.cinematography-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:28px;
+}
+
+.cinematography-grid .film-card h3{
+    margin:0 0 8px;
+    font-size:26px;
+    color:white;
+}
+
+.cinematography-grid .film-card p{
+    margin:0;
+    font-size:16px;
+    color:white;
+    opacity:0.9;
+}
+
+@media (max-width:800px){
+    .cinematography-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cinematography-section h2{
+        font-size:34px;
+    }
+}
