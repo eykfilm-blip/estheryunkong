@@ -472,3 +472,26 @@ body::after{
         font-size:16px;
     }
 }
+/* AC YEAR HEADINGS */
+
+.ac-year{
+    margin:34px 0 0;
+    padding-bottom:10px;
+
+    font-size:34px;
+    letter-spacing:3px;
+    color:white;
+
+    border-bottom:1px solid rgba(255,255,255,0.25);
+}
+
+.ac-year:first-child{
+    margin-top:0;
+}
+
+@media (max-width:900px){
+    .ac-year{
+        font-size:26px;
+        letter-spacing:2px;
+    }
+}
