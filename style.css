@@ -103,3 +103,11 @@ body::after{
     width:10.98%;
     height:19.53%;
 }
+
+/* DP WORKS PAGE */
+
+.dp-section{
+    margin-top:0;
+    padding-top:0;
+    border-top:none;
+}
