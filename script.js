@@ -20,40 +20,65 @@ canvases.forEach(canvas => {
     let hasNavigated = false;
 
     function drawScratchSurface() {
-        canvas.style.background = "transparent";
+    canvas.style.background = "transparent";
 
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
+    const rect = canvas.getBoundingClientRect();
+    const scale = window.devicePixelRatio || 1;
 
-        const gradient = ctx.createLinearGradient(
-            0,
-            0,
-            canvas.width,
-            canvas.height
+    canvas.width = rect.width * scale;
+    canvas.height = rect.height * scale;
+
+    ctx.setTransform(scale, 0, 0, scale, 0, 0);
+
+    const width = rect.width;
+    const height = rect.height;
+
+    const gradient = ctx.createLinearGradient(
+        0,
+        0,
+        width,
+        height
+    );
+
+    gradient.addColorStop(0, "#eeeeee");
+    gradient.addColorStop(0.5, "#cfcfcf");
+    gradient.addColorStop(1, "#aaaaaa");
+
+    ctx.globalCompositeOperation = "source-over";
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
+
+    // Label text only
+    ctx.save();
+
+    const label = canvas.dataset.label || "";
+    const lines = label.split(" ");
+
+    const fontSize = width * 0.2;
+    const lineHeight = fontSize * 1.05;
+
+    ctx.globalCompositeOperation = "source-over";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.font = `900 ${fontSize}px Arial`;
+
+    ctx.fillStyle = "rgba(15,15,15,0.95)";
+
+    const startY = height / 2 - ((lines.length - 1) * lineHeight) / 2;
+
+    lines.forEach((line, index) => {
+        const y = startY + index * lineHeight;
+
+        ctx.fillText(
+            line,
+            width / 2,
+            y
         );
+    });
 
-        gradient.addColorStop(0, "#f2f2f2");
-        gradient.addColorStop(0.45, "#bdbdbd");
-        gradient.addColorStop(1, "#8b8b8b");
-
-        ctx.globalCompositeOperation = "source-over";
-        ctx.globalAlpha = 1;
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // Silver speckles
-        for (let i = 0; i < 300; i++) {
-            ctx.fillStyle = "rgba(255,255,255,0.25)";
-            ctx.beginPath();
-            ctx.arc(
-                Math.random() * canvas.width,
-                Math.random() * canvas.height,
-                Math.random() * 2,
-                0,
-                Math.PI * 2
-            );
-            ctx.fill();
-        }
+    ctx.restore();
+}
 
         // Label text only
         ctx.save();
