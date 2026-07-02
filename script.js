@@ -55,35 +55,35 @@ canvases.forEach(canvas => {
             ctx.fill();
         }
 
-        // Label text
-ctx.save();
+        // Label text only
+        ctx.save();
 
-const label = canvas.dataset.label || "";
+        const label = canvas.dataset.label || "";
+        const fontSize = canvas.width * 0.12;
 
-const fontSize = canvas.width * 0.12;
+        ctx.globalCompositeOperation = "source-over";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.font = `bold ${fontSize}px Arial`;
 
-ctx.globalCompositeOperation = "source-over";
-ctx.textAlign = "center";
-ctx.textBaseline = "middle";
-ctx.font = `bold ${fontSize}px Arial`;
+        ctx.fillStyle = "rgba(45,45,45,0.75)";
+        ctx.strokeStyle = "rgba(255,255,255,0.55)";
+        ctx.lineWidth = 2;
 
-ctx.fillStyle = "rgba(45,45,45,0.75)";
-ctx.strokeStyle = "rgba(255,255,255,0.55)";
-ctx.lineWidth = 2;
+        ctx.strokeText(
+            label,
+            canvas.width / 2,
+            canvas.height / 2
+        );
 
-ctx.strokeText(
-    label,
-    canvas.width / 2,
-    canvas.height / 2
-);
+        ctx.fillText(
+            label,
+            canvas.width / 2,
+            canvas.height / 2
+        );
 
-ctx.fillText(
-    label,
-    canvas.width / 2,
-    canvas.height / 2
-);
-
-ctx.restore();
+        ctx.restore();
+    }
 
     function goToPage() {
         if (hasNavigated) return;
