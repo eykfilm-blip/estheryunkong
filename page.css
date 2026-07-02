@@ -495,3 +495,193 @@ body::after{
         letter-spacing:2px;
     }
 }
+
+/* ABOUT PAGE */
+
+.about-panel{
+    max-width:1200px;
+}
+
+.about-intro{
+    display:grid;
+    grid-template-columns:360px 1fr;
+    gap:42px;
+    align-items:start;
+
+    padding:30px;
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(8px);
+}
+
+.about-photo-wrap{
+    width:100%;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.25);
+    background:rgba(255,255,255,0.12);
+}
+
+.about-photo{
+    width:100%;
+    aspect-ratio:4 / 5;
+    object-fit:cover;
+    display:block;
+}
+
+.about-bio h2{
+    margin:0 0 18px;
+    font-size:36px;
+    letter-spacing:1px;
+    color:white;
+}
+
+.about-bio p{
+    margin:0 0 18px;
+    font-size:19px;
+    line-height:1.65;
+    color:rgba(255,255,255,0.86);
+}
+
+.about-section{
+    margin-top:34px;
+    padding:30px;
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(8px);
+}
+
+.about-section h2{
+    margin:0 0 24px;
+    font-size:34px;
+    letter-spacing:2px;
+    color:white;
+}
+
+.about-list{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.about-list-item{
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,0.22);
+}
+
+.about-list-item:first-child{
+    padding-top:0;
+    border-top:none;
+}
+
+.about-list-item h3{
+    margin:0 0 12px;
+    font-size:24px;
+    letter-spacing:2px;
+    color:white;
+}
+
+.about-list-item p{
+    margin:0 0 10px;
+    font-size:18px;
+    line-height:1.5;
+    color:rgba(255,255,255,0.84);
+}
+
+.about-title{
+    font-weight:800;
+    color:white;
+}
+
+@media (max-width:900px){
+    .about-intro{
+        grid-template-columns:1fr;
+        gap:24px;
+        padding:22px;
+    }
+
+    .about-bio h2{
+        font-size:30px;
+    }
+
+    .about-bio p{
+        font-size:17px;
+    }
+
+    .about-section{
+        padding:22px;
+    }
+
+    .about-section h2{
+        font-size:28px;
+    }
+
+    .about-list-item p{
+        font-size:16px;
+    }
+}
+
+/* SIMPLE ABOUT LISTS */
+
+.about-simple-section{
+    margin-top:34px;
+    padding:30px;
+
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(8px);
+
+    color:white;
+}
+
+.about-simple-section h2{
+    margin:0 0 22px;
+
+    font-size:38px;
+    letter-spacing:3px;
+    color:white;
+}
+
+.simple-list{
+    margin:0;
+    padding-left:22px;
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.simple-list li{
+    font-size:19px;
+    line-height:1.55;
+    color:rgba(255,255,255,0.88);
+}
+
+.simple-list a{
+    color:white;
+    text-decoration:underline;
+    text-underline-offset:4px;
+    word-break:break-word;
+}
+
+.simple-list a:hover{
+    opacity:0.75;
+}
+
+@media (max-width:900px){
+    .about-simple-section{
+        padding:22px;
+    }
+
+    .about-simple-section h2{
+        font-size:30px;
+        letter-spacing:2px;
+    }
+
+    .simple-list li{
+        font-size:16px;
+    }
+}
