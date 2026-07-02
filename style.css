@@ -65,25 +65,41 @@ body::after{
 }
 
 /* FILMS */
-.about{
-    left:20.61%;
-    top:59.01%;
-    width:10.97%;
-    height:19.41%;
+.films{
+    left:9.15%;
+    top:62.37%;
+    width:10.98%;
+    height:19.53%;
+}
+
+/* DP WORKS */
+.dp{
+    left:26.79%;
+    top:62.37%;
+    width:10.98%;
+    height:19.53%;
+}
+
+/* AC WORKS */
+.ac{
+    left:44.51%;
+    top:62.37%;
+    width:10.98%;
+    height:19.53%;
+}
+
+/* GAFF WORKS */
+.gaff{
+    left:62.23%;
+    top:62.37%;
+    width:10.98%;
+    height:19.53%;
 }
 
 /* ABOUT */
-.works{
-    left:42.67%;
-    top:59.01%;
-    width:10.97%;
-    height:19.41%;
-}
-
-/* REEL */
-.cv{
-    left:64.90%;
-    top:59.01%;
-    width:10.97%;
-    height:19.41%;
+.about{
+    left:79.87%;
+    top:62.76%;
+    width:10.98%;
+    height:19.53%;
 }
