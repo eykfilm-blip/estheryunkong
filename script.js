@@ -55,49 +55,35 @@ canvases.forEach(canvas => {
             ctx.fill();
         }
 
-        // Scratch text
-        ctx.save();
+        // Label text
+ctx.save();
 
-        const lineOne = "SCRATCH";
-        const lineTwo = canvas.dataset.label || "TO REVEAL";
+const label = canvas.dataset.label || "";
 
-        const fontSize = canvas.width * 0.11;
+const fontSize = canvas.width * 0.12;
 
-        ctx.globalCompositeOperation = "source-over";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.font = `bold ${fontSize}px Arial`;
+ctx.globalCompositeOperation = "source-over";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+ctx.font = `bold ${fontSize}px Arial`;
 
-        ctx.fillStyle = "rgba(45,45,45,0.75)";
-        ctx.strokeStyle = "rgba(255,255,255,0.55)";
-        ctx.lineWidth = 2;
+ctx.fillStyle = "rgba(45,45,45,0.75)";
+ctx.strokeStyle = "rgba(255,255,255,0.55)";
+ctx.lineWidth = 2;
 
-        ctx.strokeText(
-            lineOne,
-            canvas.width / 2,
-            canvas.height / 2 - fontSize * 0.45
-        );
+ctx.strokeText(
+    label,
+    canvas.width / 2,
+    canvas.height / 2
+);
 
-        ctx.fillText(
-            lineOne,
-            canvas.width / 2,
-            canvas.height / 2 - fontSize * 0.45
-        );
+ctx.fillText(
+    label,
+    canvas.width / 2,
+    canvas.height / 2
+);
 
-        ctx.strokeText(
-            lineTwo,
-            canvas.width / 2,
-            canvas.height / 2 + fontSize * 0.65
-        );
-
-        ctx.fillText(
-            lineTwo,
-            canvas.width / 2,
-            canvas.height / 2 + fontSize * 0.65
-        );
-
-        ctx.restore();
-    }
+ctx.restore();
 
     function goToPage() {
         if (hasNavigated) return;
