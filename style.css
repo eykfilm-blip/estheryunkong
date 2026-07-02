@@ -111,3 +111,12 @@ body::after{
     padding-top:0;
     border-top:none;
 }
+
+.scratch{
+    position:absolute;
+    z-index:2;
+    background:linear-gradient(135deg, #eeeeee, #cfcfcf, #aaaaaa);
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-user-drag:none;
+}
