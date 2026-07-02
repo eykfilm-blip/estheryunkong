@@ -419,70 +419,56 @@ body::after{
     border-top:none;
 }
 
-/* =========================
-   AC WORKS
-========================= */
+/* AC WORKS */
 
 .ac-list{
     display:flex;
     flex-direction:column;
-    gap:24px;
+    gap:22px;
     margin-top:20px;
 }
 
 .ac-card{
-    display:grid;
-    grid-template-columns: 2fr 1fr;
-    gap:36px;
-    align-items:start;
-
-    padding:28px 30px;
+    padding:26px 30px;
     box-sizing:border-box;
 
     border:1px solid rgba(255,255,255,0.25);
     border-radius:20px;
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(8px);
+
+    color:white;
 }
 
 .ac-project-line{
     margin:0;
-    font-size:24px;
+    font-size:23px;
     line-height:1.45;
     color:white;
 }
 
 .ac-title{
-    font-weight:700;
-}
-
-.ac-right{
-    display:flex;
-    justify-content:flex-start;
-    align-items:flex-start;
+    font-weight:800;
 }
 
 .ac-role{
-    margin:0;
-    font-size:22px;
-    line-height:1.45;
-    color:white;
-    text-align:left;
+    margin:12px 0 0;
+    font-size:19px;
+    line-height:1.4;
+    color:rgba(255,255,255,0.82);
 }
 
 /* mobile */
-@media (max-width: 900px){
+@media (max-width:900px){
     .ac-card{
-        grid-template-columns:1fr;
-        gap:14px;
         padding:22px;
     }
 
     .ac-project-line{
-        font-size:18px;
+        font-size:17px;
     }
 
     .ac-role{
-        font-size:17px;
+        font-size:16px;
     }
 }
