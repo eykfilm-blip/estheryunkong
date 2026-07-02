@@ -59,28 +59,37 @@ canvases.forEach(canvas => {
         ctx.save();
 
         const label = canvas.dataset.label || "";
-        const fontSize = canvas.width * 0.12;
 
-        ctx.globalCompositeOperation = "source-over";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.font = `bold ${fontSize}px Arial`;
+const lines = label.split(" ");
+const fontSize = canvas.width * 0.18;
+const lineHeight = fontSize * 1.05;
 
-        ctx.fillStyle = "rgba(45,45,45,0.75)";
-        ctx.strokeStyle = "rgba(255,255,255,0.55)";
-        ctx.lineWidth = 2;
+ctx.globalCompositeOperation = "source-over";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+ctx.font = `900 ${fontSize}px Arial`;
 
-        ctx.strokeText(
-            label,
-            canvas.width / 2,
-            canvas.height / 2
-        );
+ctx.fillStyle = "rgba(20,20,20,0.95)";
+ctx.strokeStyle = "rgba(255,255,255,0.9)";
+ctx.lineWidth = 3;
 
-        ctx.fillText(
-            label,
-            canvas.width / 2,
-            canvas.height / 2
-        );
+const startY = canvas.height / 2 - ((lines.length - 1) * lineHeight) / 2;
+
+lines.forEach((line, index) => {
+    const y = startY + index * lineHeight;
+
+    ctx.strokeText(
+        line,
+        canvas.width / 2,
+        y
+    );
+
+    ctx.fillText(
+        line,
+        canvas.width / 2,
+        y
+    );
+});
 
         ctx.restore();
     }
