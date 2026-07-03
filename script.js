@@ -20,8 +20,10 @@ canvases.forEach(canvas => {
     let hasNavigated = false;
 
     function drawScratchSurface() {
-        const rect = canvas.getBoundingClientRect();
-        const scale = window.devicePixelRatio || 1;
+    canvas.style.background = "transparent";
+
+    const rect = canvas.getBoundingClientRect();
+    const scale = window.devicePixelRatio || 1;
 
         const width = rect.width;
         const height = rect.height;
