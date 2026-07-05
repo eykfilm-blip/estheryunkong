@@ -55,51 +55,43 @@ body::after{
     -webkit-user-drag:none;
 }
 
-.scratch{
-    position:absolute;
-    z-index:2;
-    background:linear-gradient(135deg, #eeeeee, #cfcfcf, #aaaaaa);
-    user-select:none;
-    -webkit-user-select:none;
-    -webkit-user-drag:none;
+.scratch {
+  position: absolute;
+  z-index: 2;
 }
 
-/* FILMS */
-.films{
-    left:9.15%;
-    top:62.37%;
-    width:10.98%;
-    height:19.53%;
+/* slightly bigger so no pink peeks through */
+.scratch.films {
+  left: 8.8%;
+  top: 61.9%;
+  width: 11.7%;
+  height: 21.0%;
 }
 
-/* DP WORKS */
-.dp{
-    left:26.79%;
-    top:62.37%;
-    width:10.98%;
-    height:19.53%;
+.scratch.dp {
+  left: 26.6%;
+  top: 61.9%;
+  width: 11.7%;
+  height: 21.0%;
 }
 
-/* AC WORKS */
-.ac{
-    left:44.51%;
-    top:62.37%;
-    width:10.98%;
-    height:19.53%;
+.scratch.ac {
+  left: 44.4%;
+  top: 61.9%;
+  width: 11.7%;
+  height: 21.0%;
 }
 
-/* GAFF WORKS */
-.gaff{
-    left:62.23%;
-    top:62.37%;
-    width:10.98%;
-    height:19.53%;
+.scratch.gaff {
+  left: 62.1%;
+  top: 61.9%;
+  width: 11.7%;
+  height: 21.0%;
 }
 
-/* ABOUT */
-.about{
-    left:79.87%;
-    top:62.76%;
-    width:10.98%;
-    height:19.53%;
+.scratch.about {
+  left: 79.9%;
+  top: 61.9%;
+  width: 11.7%;
+  height: 21.0%;
 }
