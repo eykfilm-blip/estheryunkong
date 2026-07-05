@@ -15,7 +15,7 @@ body::before{
     content:"";
     position:fixed;
     inset:0;
-    background-image:url("./images/page-background.png");
+    background-image:url("./images/page-background-purple.png");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
