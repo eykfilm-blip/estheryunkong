@@ -23,6 +23,15 @@
 
     <section class="cinematography-section dp-section">
 
+        <div class="cinematography-project">
+    <div class="cinematography-thumbs" id="pigeon-thumbs"></div>
+
+    <div class="cinematography-info">
+        <h3>Pigeon</h3>
+        <p>Year | Dir. Lisa Dodell</p>
+    </div>
+</div>
+
         <div class="cinematography-list">
 
             <div class="cinematography-project">
@@ -143,6 +152,17 @@
     </section>
 
 </div>
+
+    <script>
+    const pigeonThumbs = document.getElementById("pigeon-thumbs");
+
+    for (let i = 1; i <= 35; i++) {
+        const img = document.createElement("img");
+        img.src = `./images/pigeon-${i}.jpg`;
+        img.alt = `Pigeon still ${i}`;
+        pigeonThumbs.appendChild(img);
+    }
+</script>
 
 </body>
 
